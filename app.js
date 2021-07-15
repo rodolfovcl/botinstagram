@@ -4,10 +4,10 @@ const tag = 'f1'
 const likes = 5
 let counter = 0
 
-/*https://pptr.dev/*/
+/*Dependencia para realizar scraping Pupperteer: https://pptr.dev/*/
 const inicio = async () => {
   try {
-    //? Abrir chrome
+    //? 1- Abrir chrome
     const browser = await puppeteer.launch({
       headless: false,
       devtools: true
@@ -15,7 +15,8 @@ const inicio = async () => {
     // Nueva pagina
     const page = await browser.newPage()
     await page.goto('https://www.instagram.com/')
-    //? Inicio sesion
+
+    //? 2- Inicio sesion
     // Espero a que el input este disponible 'waitForSelector'
     await page.waitForSelector('input[name="username"]', {visible: true})
     // Estando visible empiezo a interactuar con los inputs
@@ -29,11 +30,17 @@ const inicio = async () => {
     await page.waitForSelector('div[class="mt3GC"] > button:nth-child(2)', {visible: true})
     await page.click('div[class="mt3GC"] > button:nth-child(2)')
 
+    //? 3- Realizo buscqueda de hashtags
+    await page.goto(`https://www.instagram.com/explore/tags/${tag}`)
+    await page.waitForSelector('div[class="EZdmt"]', {visible: true}) // Contenedor general de los tags buscados
+    await page.click('div[class="EZdmt"] > div > div > div > div > a') // Primera imagen del resultado
+
+
 
     // setTimeout(async() => { await page.screenshot({ path: 'captura.png' }) }, 1000)
     // setTimeout(async() => { await browser.close() }, 5000)
   } catch (error) {
-    console.log('error: ', error)
+    console.log('Error al iniciar botinstagram: ', error)
   }
 }
 inicio()
