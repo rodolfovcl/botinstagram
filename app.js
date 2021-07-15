@@ -21,7 +21,7 @@ const inicio = async () => {
     await page.waitForSelector('input[name="username"]', {visible: true})
     // Estando visible empiezo a interactuar con los inputs
     await page.type('input[name="username"]', 'rodolfovcl', {delay:300})
-    await page.type('input[type="password"]', '', {delay:300})
+    await page.type('input[type="password"]', 'Instagramsocial123', {delay:300})
     await page.click('button[type="submit"]')
     // Quitando alerta guardar inicio de sesion (esperando 1ro que este disponible el selector)
     await page.waitForSelector('div[class="cmbtv"] > button', {visible: true})
