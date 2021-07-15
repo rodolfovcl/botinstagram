@@ -67,6 +67,17 @@ const inicio = async () => {
     // })
     // console.log('valor', valor) // Resultado: valor ¿No tienes una cuenta? Regístrate
 
+    // Otro ejemplo de extraccion de data
+    // Get the "viewport" of the page, as reported by the page.
+    // const dimensions = await page.evaluate(() => {
+    //   return {
+    //     width: document.documentElement.clientWidth,
+    //     height: document.documentElement.clientHeight,
+    //     deviceScaleFactor: window.devicePixelRatio,
+    //   }
+    // })
+    // console.log('Dimensiones:', dimensions);
+
     //? Metodos opcionales
     // setTimeout(async() => { await page.screenshot({ path: 'captura.png' }) }, 1000)
     // setTimeout(async() => { await browser.close() }, 5000)
