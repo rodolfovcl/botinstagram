@@ -1,0 +1,23 @@
+{
+  "name": "botinstagram",
+  "version": "1.0.0",
+  "description": "Usando Node v14.17.3 (npm v6.14.13)",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodolfovcl/botinstagram.git"
+  },
+  "keywords": ['bot', 'botinstagram', 'puppeteer'],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodolfovcl/botinstagram/issues"
+  },
+  "homepage": "https://github.com/rodolfovcl/botinstagram#readme",
+  "dependencies": {
+    "puppeteer": "^10.1.0"
+  }
+}
