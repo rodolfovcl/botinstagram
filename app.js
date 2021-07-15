@@ -4,6 +4,12 @@ const tag = 'f1'
 const like = 5
 let counter = 0
 
+/*Obtengo variables de entonrto utilizando dotenv: https://www.npmjs.com/package/dotenv*/
+// npm i dotenv
+require('dotenv').config()
+const user = process.env.USERNAME
+const password = process.env.PASSWORD
+
 /*Dependencia para realizar scraping Pupperteer: https://pptr.dev/*/
 const inicio = async () => {
   try {
@@ -20,8 +26,8 @@ const inicio = async () => {
     // Espero a que el input este disponible 'waitForSelector'
     await page.waitForSelector('input[name="username"]', {visible: true})
     // Estando visible empiezo a interactuar con los inputs
-    await page.type('input[name="username"]', 'rodolfovcl', {delay:300})
-    await page.type('input[type="password"]', '', {delay:300})
+    await page.type('input[name="username"]', user, {delay:300})
+    await page.type('input[type="password"]', password, {delay:300})
     await page.click('button[type="submit"]')
     // Quitando alerta guardar inicio de sesion (esperando 1ro que este disponible el selector)
     await page.waitForSelector('div[class="cmbtv"] > button', {visible: true})
