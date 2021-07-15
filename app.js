@@ -51,6 +51,17 @@ const inicio = async () => {
     await page.click('body > div._2dDPU.CkGkG > div.Igw0E.IwRSH.eGOV_._4EzTm.BI4qX.qJPeX.fm1AK.TxciK.yiMZG > button')
 
 
+    //? Opcional: Extraer datos desde la web usando sintaxis JS con pupperteer
+    /*Referencia https://www.udemy.com/course/curso-de-web-scraping-en-nodejs/learn/lecture/23921754#questions*/
+    /*Documentacion del metodo evaluate(): https://pptr.dev/#?product=Puppeteer&version=v10.1.0&show=api-pageevaluatepagefunction-args*/
+    // await page.waitForSelector('input[name="username"]', {visible: true}) // Esperar a que este visible el metodo
+    // const valor = await page.evaluate(() => {
+    //   let texto = document.querySelector('p[class="izU2O "]').textContent
+    //   return texto
+    // })
+    // console.log('valor', valor) // Resultado: valor ¿No tienes una cuenta? Regístrate
+
+    //? Metodos opcionales
     // setTimeout(async() => { await page.screenshot({ path: 'captura.png' }) }, 1000)
     // setTimeout(async() => { await browser.close() }, 5000)
     // await process.exit()
