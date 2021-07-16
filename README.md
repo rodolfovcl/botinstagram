@@ -1,6 +1,6 @@
 # botinstagram
 
- Proyecto de scraping utilizando Puppeteer.
+ Proyecto basico de scraping utilizando Puppeteer.
 
 En este caso para Instagram, abriendo un nuevo navegador y pagina. inicio session, quito alertas como activar notificaciones y guardar sesion, realizo busqueda de fotos por hashtag para darles like y seguir buscado fotos en un bucle.
 

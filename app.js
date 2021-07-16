@@ -14,12 +14,15 @@ const password = process.env.PASSWORD
 const inicio = async () => {
   try {
     //? 1- Abrir chrome
-    const browser = await puppeteer.launch({
-      headless: false,
-      devtools: true
-    })
+    const browser = await puppeteer.launch({ headless: false /*, devtools: true*/ }) // headless: false para que habra el navegador
     // Nueva pagina
     const page = await browser.newPage()
+    //Fefino tamaño de la pagina
+    await page.setViewport({
+      width: 1200,
+      height: 900,
+      deviceScaleFactor: 1
+    })
     await page.goto('https://www.instagram.com/')
 
     //? 2- Inicio sesion
@@ -39,6 +42,7 @@ const inicio = async () => {
     //? 3- Realizo buscqueda de hashtags
     await page.goto(`https://www.instagram.com/explore/tags/${tag}`)
     await page.waitForSelector('div[class="EZdmt"]', {visible: true}) // Contenedor general de los tags buscados
+    await page.screenshot({ path: 'captura.png' }) // Genero screenshot de los resultados de la busqueda
     await page.click('div[class="EZdmt"] > div > div > div > div > a') // Primera imagen del resultado
 
     //? 4- Inicio bucle para dar likes y cambiar a la siguiente imagen
@@ -81,6 +85,7 @@ const inicio = async () => {
     //? Metodos opcionales
     // setTimeout(async() => { await page.screenshot({ path: 'captura.png' }) }, 1000)
     // setTimeout(async() => { await browser.close() }, 5000)
+    // await page.pdf({ path: 'hn.pdf', format: 'a4' });
     // await process.exit()
   } catch (error) {
     console.log('Error al iniciar botinstagram: ', error)
